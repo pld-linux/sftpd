@@ -1,0 +1,74 @@
+--- ./configure.in.org	2003-08-08 19:28:14.000000000 +0200
++++ ./configure.in	2005-05-26 21:06:45.000000000 +0200
+@@ -300,20 +300,20 @@
+ # where to look for GMP components; the current directory (since
+ # that's a convenient place to put symlinks), and any directory
+ # off this one's parent whose name starts with "gmp"
+-places_to_look=`echo . ../gmp*`
++places_to_look=`echo . ../gmp* /usr/lib/`
+ AC_MSG_RESULT(I may look for GMP files in these directories: $places_to_look)
+ 
+ 
+-# find libgmp.a, the GNU multi-precision library, available
++# find libgmp.so, the GNU multi-precision library, available
+ # from http://www.swox.com/gmp/
+ AC_CHECK_LIB(gmp, mpz_invert, LDFLAGS="$LDFLAGS -lgmp", [
+ 
+   # since I don't want to force people to install gmp, let's be
+   # a bit lenient about where it might be
+-  AC_MSG_CHECKING(for libgmp.a)
++  AC_MSG_CHECKING(for libgmp.so)
+ 
+   # search for it (hack: exclude sftpd's "nt" directory)
+-  (find $places_to_look -name libgmp.a -print | grep -v '/nt/') \
++  (find $places_to_look -name libgmp.so -print | grep -v '/nt/') \
+      > conftest.lst 2>/dev/null
+ 
+   if test `wc -l < conftest.lst` -gt 0 ; then
+@@ -328,7 +328,7 @@
+     # didn't find it
+     AC_MSG_ERROR([
+ 
+-      I could not find libgmp.a (the GNU multi-precision math library).
++      I could not find libgmp.so (the GNU multi-precision math library).
+ 
+         - If you do not have it, get it from http://www.swox.com/gmp/,
+           compile it in a directory that is a peer of this one, and
+@@ -337,7 +337,7 @@
+ 
+         - If you do have it, you can put a symlink in the current
+           directory, like this:
+-            ln -s /some/place/libgmp.a .
++            ln -s /some/place/libgmp.so .
+           and then run ./configure again.
+ 
+     ])
+@@ -346,7 +346,7 @@
+ ])
+ 
+ 
+-# find gmp.h, the header for libgmp.a
++# find gmp.h, the header for libgmp.so
+ AC_CHECK_HEADER(gmp.h, true, [
+ 
+   # similar to above, search for gmp.h myself
+@@ -367,8 +367,8 @@
+     # didn't find it
+     AC_MSG_ERROR([
+ 
+-      I could not find gmp.h (the header for the libgmp.a).
+-      Since I already found libgmp.a, I am assuming you do have this
++      I could not find gmp.h (the header for the libgmp.so).
++      Since I already found libgmp.so, I am assuming you do have this
+       file somewhere.  You can put a symlink in the current directory,
+       like this:
+         ln -s /some/place/gmp.h .
+@@ -405,7 +405,7 @@
+     Something is wrong with how GMP is installed.  One possible cause is
+     having two different versions installed, where the header (gmp.h) 
+     from one version is used during compilation, and the library 
+-    (libgmp.a) from another is used during linking.
++    (libgmp.so) from another is used during linking.
+     
+     Another possibility is that GMP and SafeTP are using different ABIs.
+     See http://safetp.cs.berkeley.edu/sun.arch.html for some hints in
