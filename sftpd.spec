@@ -10,7 +10,7 @@ Patch0:		%{name}-dynamic_gmp.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gmp-devel
-URL:		http://www.xbill.org/sftp/
+URL:		http://safetp.cs.berkeley.edu/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
