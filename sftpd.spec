@@ -1,3 +1,8 @@
+# TODO:
+# - safetp-client subpackage
+# - rc-inetd file (subpackage)
+# - maybe prepare packages for each ftp serwer???
+# - init file (subpackage)
 Summary:	SafeTP Transparent FTP Security Software
 Name:		sftpd
 Version:	1.50
@@ -40,9 +45,10 @@ relaying it to the network.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT/etc/safetp
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+#%{__make} install \
+#	DESTDIR=$RPM_BUILD_ROOT
 
 #mv $RPM_BUILD_ROOT%{_bindir}/sftp \
 #	$RPM_BUILD_ROOT%{_bindir}/sftpc
@@ -51,6 +57,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%pre
+if [ -n "`id -u safetp 2>/dev/null`" ]; then
+	if [ "`id -u safetp`" != "135" ]; then
+		echo "Error: user safetp doesn't have uid=135. Correct this before installing sftpd." 1>&2
+		exit 1
+	fi
+else
+	/usr/sbin/useradd -u 135 -r -d /home/services/safetp -s /bin/false -c "SafeTP proxy user" -g daemon safetp 1>&2
+fi
 
 %files
 %defattr(644,root,root,755)
