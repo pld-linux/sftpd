@@ -10,7 +10,7 @@ Release:	0.1
 License:	non distributable (see license.txt)
 Group:		Applications/Networking
 Source0:	http://safetp.cs.berkeley.edu/tmp-location//%{name}-%{version}.tar.gz
-# Source0-md5:	a01338b4e0a13692ed893d067f115d75
+# NoSource0-md5:	a01338b4e0a13692ed893d067f115d75
 NoSource:	0
 Patch0:		%{name}-dynamic_gmp.patch
 BuildRequires:	autoconf
