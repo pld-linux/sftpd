@@ -1,7 +1,7 @@
 # TODO:
 # - safetp-client subpackage
 # - rc-inetd file (subpackage)
-# - maybe prepare packages for each ftp serwer???
+# - maybe prepare packages for each ftp server???
 # - init file (subpackage)
 Summary:	SafeTP Transparent FTP Security Software
 Name:		sftpd
