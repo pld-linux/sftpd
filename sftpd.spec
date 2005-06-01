@@ -1,9 +1,11 @@
 # TODO:
+# - use useradd macro
 # - safetp-client subpackage
 # - rc-inetd file (subpackage)
 # - maybe prepare packages for each ftp server???
 # - init file (subpackage)
 Summary:	SafeTP Transparent FTP Security Software
+Summary(pl):	SafeTP - przezroczyste bezpieczeñstwo dla FTP
 Name:		sftpd
 Version:	1.50
 Release:	0.1
@@ -13,10 +15,12 @@ Source0:	http://safetp.cs.berkeley.edu/tmp-location//%{name}-%{version}.tar.gz
 # NoSource0-md5:	a01338b4e0a13692ed893d067f115d75
 NoSource:	0
 Patch0:		%{name}-dynamic_gmp.patch
+URL:		http://safetp.cs.berkeley.edu/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gmp-devel
-URL:		http://safetp.cs.berkeley.edu/
+Requires(pre):	/bin/id
+Requires(pre):	/usr/sbin/useradd
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -32,6 +36,20 @@ any ordinary Windows FTP client automatically becomes a Secure FTP
 client, without any further user intervention. SafeTP intercepts
 outgoing FTP network connections, and encrypts the traffic before
 relaying it to the network.
+
+%description -l pl
+SafeTP to nowa rewolucyjna aplikacja zabezpieczaj±ca dla u¿ytkowników
+Windows i uniksów korzystaj±cych z FTP (File Transfer Protocol) do
+³±czenia siê z kontami na serwerach uniksowych lub NT/2000. Tradycyjny
+protokó³ FTP jest bardzo niebezpieczny: wysy³a has³a czystym tekstem.
+Z tego powodu FTP jest uznawany za jeden z wiêkszych problemów
+bezpieczeñstwa w wiêkszo¶ci systemów uniksowych.
+
+G³ówn± zalet± SafeTP jest przezroczysto¶æ. Kiedy SafeTP jest
+zainstalowany, dowolny windowsowy klient FTP staje siê klientem Secure
+FTP, bez ¿adnej dalszej interwencji u¿ytkownika. SafeTP przechwytuje
+wychodz±ce po³±czenia FTP i koduje ca³y ruch przed przekazaniem go do
+sieci.
 
 %prep
 %setup -q
