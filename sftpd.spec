@@ -1,5 +1,5 @@
 # TODO:
-# - use useradd macro
+# - missing userdel
 # - safetp-client subpackage
 # - rc-inetd file (subpackage)
 # - maybe prepare packages for each ftp server???
@@ -19,6 +19,8 @@ URL:		http://safetp.cs.berkeley.edu/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gmp-devel
+BuildRequires:	rpmbuild(macros) >= 1.202
+Provides:		user(safetp)
 Requires(pre):	/bin/id
 Requires(pre):	/usr/sbin/useradd
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -77,14 +79,7 @@ install -d $RPM_BUILD_ROOT/etc/safetp
 rm -rf $RPM_BUILD_ROOT
 
 %pre
-if [ -n "`id -u safetp 2>/dev/null`" ]; then
-	if [ "`id -u safetp`" != "135" ]; then
-		echo "Error: user safetp doesn't have uid=135. Correct this before installing sftpd." 1>&2
-		exit 1
-	fi
-else
-	/usr/sbin/useradd -u 135 -r -d /home/services/safetp -s /bin/false -c "SafeTP proxy user" -g daemon safetp 1>&2
-fi
+%useradd -u 135 -r -d /home/services/safetp -s /bin/false -c "SafeTP proxy user" -g daemon safetp
 
 %files
 %defattr(644,root,root,755)
