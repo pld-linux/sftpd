@@ -5,7 +5,7 @@
 # - maybe prepare packages for each ftp server???
 # - init file (subpackage)
 Summary:	SafeTP Transparent FTP Security Software
-Summary(pl.UTF-8):   SafeTP - przezroczyste bezpieczeństwo dla FTP
+Summary(pl.UTF-8):	SafeTP - przezroczyste bezpieczeństwo dla FTP
 Name:		sftpd
 Version:	1.50
 Release:	0.1
