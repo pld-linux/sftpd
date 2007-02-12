@@ -5,7 +5,7 @@
 # - maybe prepare packages for each ftp server???
 # - init file (subpackage)
 Summary:	SafeTP Transparent FTP Security Software
-Summary(pl):	SafeTP - przezroczyste bezpieczeñstwo dla FTP
+Summary(pl.UTF-8):   SafeTP - przezroczyste bezpieczeÅ„stwo dla FTP
 Name:		sftpd
 Version:	1.50
 Release:	0.1
@@ -39,18 +39,18 @@ client, without any further user intervention. SafeTP intercepts
 outgoing FTP network connections, and encrypts the traffic before
 relaying it to the network.
 
-%description -l pl
-SafeTP to nowa rewolucyjna aplikacja zabezpieczaj±ca dla u¿ytkowników
-Windows i uniksów korzystaj±cych z FTP (File Transfer Protocol) do
-³±czenia siê z kontami na serwerach uniksowych lub NT/2000. Tradycyjny
-protokó³ FTP jest bardzo niebezpieczny: wysy³a has³a czystym tekstem.
-Z tego powodu FTP jest uznawany za jeden z wiêkszych problemów
-bezpieczeñstwa w wiêkszo¶ci systemów uniksowych.
+%description -l pl.UTF-8
+SafeTP to nowa rewolucyjna aplikacja zabezpieczajÄ…ca dla uÅ¼ytkownikÃ³w
+Windows i uniksÃ³w korzystajÄ…cych z FTP (File Transfer Protocol) do
+Å‚Ä…czenia siÄ™ z kontami na serwerach uniksowych lub NT/2000. Tradycyjny
+protokÃ³Å‚ FTP jest bardzo niebezpieczny: wysyÅ‚a hasÅ‚a czystym tekstem.
+Z tego powodu FTP jest uznawany za jeden z wiÄ™kszych problemÃ³w
+bezpieczeÅ„stwa w wiÄ™kszoÅ›ci systemÃ³w uniksowych.
 
-G³ówn± zalet± SafeTP jest przezroczysto¶æ. Kiedy SafeTP jest
-zainstalowany, dowolny windowsowy klient FTP staje siê klientem Secure
-FTP, bez ¿adnej dalszej interwencji u¿ytkownika. SafeTP przechwytuje
-wychodz±ce po³±czenia FTP i koduje ca³y ruch przed przekazaniem go do
+GÅ‚Ã³wnÄ… zaletÄ… SafeTP jest przezroczystoÅ›Ä‡. Kiedy SafeTP jest
+zainstalowany, dowolny windowsowy klient FTP staje siÄ™ klientem Secure
+FTP, bez Å¼adnej dalszej interwencji uÅ¼ytkownika. SafeTP przechwytuje
+wychodzÄ…ce poÅ‚Ä…czenia FTP i koduje caÅ‚y ruch przed przekazaniem go do
 sieci.
 
 %prep
